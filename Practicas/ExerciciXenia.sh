@@ -1,19 +1,21 @@
 #!/bin/bash
 
-if [! -f $1];then
+if [ ! -f $1 ]; then
         echo "El fitxer $1 no existe."
         exit 1
 fi
 
 llista=$1
-fitxers=$(cat $llista)
-compt=0
+fitxers=$(cat $1)
+compt=0; numfiles=0
 for i in $fitxers
-        if i in #!No se que poner
-		;then
-                	expr $compt + 1
+do
+	numfiles=`expr $numfiles + 1`
+        if [ -f $i ]; then
+               	compt=`expr $compt + 1`
+	fi
+done
 
 echo "Existeixen: $compt"
-echo "No existeixen: $(expr $#fitxers[*] - $compt)"
-
-fi
+echo "No existeixen: `expr $numfiles - $compt`"
+exit 0
