@@ -60,6 +60,7 @@ paraulesdelfitxer()
 			fi
 		done
 	fi
+	return 0
 }
 
 #Funció main
