@@ -6,6 +6,7 @@ obrimfitxers()
 {
 
 	paraula=$3
+	apareix=0
 	for f in $myfiles
 	do
 		if [[ ! -d $f && ! -f $f ]]; then
@@ -43,6 +44,9 @@ obrimfitxers()
 			cd ..
 		fi
 	done
+	if [[ $apareix -eq 0 ]]; then
+		echo "La cadena no apareix en cap fitxer"
+	fi
 	return 0
 
 }
@@ -55,8 +59,9 @@ paraulesdelfitxer()
 		for i in $text
 		do
 			if [[ $i == $paraula ]]; then
-				echo "$f: $i"
-				return 0
+				echo "$(pwd)/$f"
+				apareix=1
+				return "$apareix"
 			fi
 		done
 	fi
@@ -67,7 +72,13 @@ paraulesdelfitxer()
 
 cd "$1"
 
-if [[ ! -d $1 || -f $2 || -z $3 ]]; then
+if [ $# -ne 3 ]
+then
+        echo "El nombre de parametres introduits es incorrecte"
+        exit 1
+fi
+
+if [[ ! -d $1 || -z $2 || -z $3 ]]; then
 	echo "Error en l'entrada"
 	exit 1
 
