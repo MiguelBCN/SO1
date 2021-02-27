@@ -1,8 +1,15 @@
 #!/bin/bash
 
-if [ -z $1 ]; then
-	echo "Error en el nom"
-	exit 1
+if [ $# -ne 1 ]
+then
+        echo "El nombre de parametres introduits es incorrecte"
+        exit 1
+fi
+
+
+if [ ! -f $1 ]; then
+        echo "El fitxer no es pot modificar perque no existeix"
+        exit 1
 fi
 
 nom=$1
@@ -15,6 +22,6 @@ do
 		renom+=$lletra
 	fi
 done
-echo "$renom"
+echo "Fitxer reanomenat a $renom"
 mv $nom $renom
 exit 0 
