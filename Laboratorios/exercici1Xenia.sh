@@ -8,7 +8,7 @@ fi
 
 
 if [ ! -f $1 ]; then
-        echo "El fitxer no es pot modificar perque no existeix"
+        echo "Error: fitxer no existent"
         exit 1
 fi
 
