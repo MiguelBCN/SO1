@@ -2,14 +2,13 @@
 
 if [ $# -ne 1 ]
 then
-        echo "El nombre de parametres introduits es incorrecte"
-        exit 1
+	echo "El nombre de parametres introduits es incorrecte."
+	exit 1
 fi
 
-
 if [ ! -f $1 ]; then
-        echo "El fitxer no es pot modificar perque no existeix"
-        exit 1
+	echo "Error: no ha introduit un fitxer o aquest no existeix."
+	exit 1
 fi
 
 nom=$1
