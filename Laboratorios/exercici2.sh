@@ -8,14 +8,8 @@ then
 fi
 
 # Comprovació del tipus de paràmetres
-if [[ ! -d $1 || -z $2 ]]; then
+if [[ ! -d $1 || -f $2 || -d $2 ]]; then
 	echo "Error en l'entrada"
-	exit 1
-fi
-
-# Comprovació que $2 NO sigui un fitxer ni directori
-if [[ -f $2 || -d $2 ]];then
-	echo "El segon parametre no pot ser un fitxer o directori"
 	exit 1
 fi
 
