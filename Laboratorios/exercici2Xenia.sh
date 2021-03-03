@@ -1,19 +1,25 @@
 #!/bin/bash
-
+# Comprobacion de numero de parametros
 if [ $# -ne 2 ]
 then
         echo "El nombre de parametres introduits es incorrecte"
         exit 1
 fi
-
+# Comprobacion del tipo de datos
 if [[ ! -d $1 || -z $2 ]]; then
 	echo "Error en l'entrada"
+	exit 1
+fi
+# Comprobacion que $2 NO sea un fichero ni directorio
+if [[ -f $2 || -d $2 ]];then
+	echo "El segon paràmetre no pot ser un fitxer o directori"
 	exit 1
 fi
 
 cd "$1"
 myfiles=$(ls "$1")
 apareix=0
+# Busqueda dentro de cada fichero por la palabra pasada como argumento
 for f in $myfiles 
 do 
 	if [ -f $f ]; then
