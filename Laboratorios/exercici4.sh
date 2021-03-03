@@ -3,7 +3,7 @@
 # Script per comprovar la mida de tots els arxius dins d'un directori
 
 # Comprovació del nombre de paràmetres
-if [ $# -ne 1 ]S
+if [ $# -ne 1 ]
 then
 	echo "El nombre de parametres introduits es incorrecte"
 	exit 1
