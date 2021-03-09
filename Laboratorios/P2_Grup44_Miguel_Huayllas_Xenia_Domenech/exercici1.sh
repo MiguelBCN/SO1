@@ -14,6 +14,6 @@ if [[ ! -d $1 || -f $2 || -d $2 ]]; then
 fi
 
 
-find $1 -type f -name "*.$2" -printf "%s  %p\n"| sort -n | sed 's/^[0-9]* //' 
+find $1 -type f -name "*.$2" -printf "%s %p\n"| sort -n | sed 's/^[0-9]* //' 
 
 exit 0 
