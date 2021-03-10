@@ -1,5 +1,0 @@
-prueba.txt
-holaquetal.txt
-misdocumentos.txt
-ExerciciXenia.sh
-llista.txt
