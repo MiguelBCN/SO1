@@ -16,7 +16,7 @@ fi
 subdirectoris=$(find $1 -type d)
 for d in $subdirectoris
 do
-	fitxers=$(ls -Fal "$d" | grep -v \/ | awk '{print $5}')
+	fitxers=$(ls -Fl "$d" | grep -v \/ | awk '{print $5}')
 	size=0
 	for f in $fitxers
 	do
