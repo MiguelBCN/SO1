@@ -234,7 +234,7 @@ void productor(int fd[2], int ppid, char* filename){
 
         write(fd[1], &idx, sizeof(int));
 
-        write(fd[1], data, 2*N*sizeof(unsigned long int));
+        write(fd[1], data, N*sizeof(block));
         kill(ppid, SIGUSR2);  
 
     }while(idx>N-1);
@@ -270,7 +270,7 @@ void consumidor(int fd[2], int ppid){
     do{
 
       read(fd[0], &idx, sizeof(int));
-      read(fd[0], data, 2*N*sizeof(unsigned long int));
+      read(fd[0], data, N*sizeof(block));
 
       for(i=0; i<idx; i++){
         pc+=data[i].passenger_count;
